@@ -1,0 +1,37 @@
+--Create a Knitting Store Database.
+
+CREATE TABLE Hanson_Knitting_Store (ID INTEGER PRIMARY KEY, Item TEXT, Quantity INTEGER, Whole_Sale_Price INTEGER, Retail_Price INTEGER, Average_days_on_shelf INTEGER);
+
+INSERT INTO Hanson_Knitting_Store VALUES (1, "Red Yarn", 15, 2, 5, 21);
+INSERT INTO Hanson_Knitting_Store VALUES (2, "Orange Yarn", 25, 2, 5, 36);
+INSERT INTO Hanson_Knitting_Store VALUES (3, "Yellow Yarn", 17, 2, 5, 31);
+INSERT INTO Hanson_Knitting_Store VALUES (4, "Green Yarn", 19, 3, 7, 25);
+INSERT INTO Hanson_Knitting_Store VALUES (5, "Light Blue Yarn", 22, 3, 5, 9);
+INSERT INTO Hanson_Knitting_Store VALUES (6, "Dark Blue Yarn", 14, 4, 7, 11);
+INSERT INTO Hanson_Knitting_Store VALUES (7, "Purple Yarn", 5, 1, 6, 17);
+INSERT INTO Hanson_Knitting_Store VALUES (8, "Rainbow Yarn", 8, 5, 10, 20);
+INSERT INTO Hanson_Knitting_Store VALUES (9, "Black Yarn", 10, 2, 7, 45);
+INSERT INTO Hanson_Knitting_Store VALUES (10, "White Yarn", 18, 1, 4, 7);
+INSERT INTO Hanson_Knitting_Store VALUES (11, "Silver Yarn", 9, 6, 15, 23);
+INSERT INTO Hanson_Knitting_Store VALUES (12, "Gold Yarn", 13, 10, 18, 50);
+INSERT INTO Hanson_Knitting_Store VALUES (13, "Knitting Needles", 20, 20, 35, 15);
+INSERT INTO Hanson_Knitting_Store VALUES (14, "Scissors", 13, 1, 6, 11);
+INSERT INTO Hanson_Knitting_Store VALUES (15, "Knitting Markers", 5, 4, 7, 30);
+
+--Display the entire database.
+SELECT * FROM Hanson_Knitting_Store;
+
+--Display the retail price of all items (in ascending order).
+SELECT Item, Retail_Price FROM Hanson_Knitting_Store
+ORDER BY Retail_Price asc;
+
+--Display the average days on shelf (in descending order).
+SELECT Item, Average_days_on_shelf FROM Hanson_Knitting_Store
+ORDER BY Average_days_on_shelf desc;
+
+--Show which specific item you have the most of in inventory.
+SELECT Item, MAX(quantity) FROM Hanson_Knitting_Store;
+
+--How much you have in stock of items having more than 10 (in descending order).
+SELECT Item, Quantity  AS Quantity_greater_than_ten
+    FROM Hanson_Knitting_Store WHERE Quantity >=10 ORDER BY Quantity desc;
